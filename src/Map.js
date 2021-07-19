@@ -1,15 +1,16 @@
 import React, { useMemo } from 'react'
 import { MapContainer, TileLayer, ScaleControl, LayersControl, FeatureGroup, Marker } from 'react-leaflet'
+import Capa1 from "./components/Capa1";
+import Capa2 from "./components/Capa2";
 
 const Map = props => {
-
    const map = useMemo( () => {
       return  (
          <MapContainer 
             doubleClickZoom={false}
             id="mapId"
-            zoom={8}
-            center={{lat: 57.8817, lng: -154.4253}}
+            zoom={7}
+            center={{lat: -42.87936, lng: 147.32941}}
             whenCreated={props.setMap}>
    
             <TileLayer
@@ -21,17 +22,17 @@ const Map = props => {
             <LayersControl>
                <LayersControl.Overlay name="Marker Overlay">
                   <FeatureGroup>
-                     <Marker position={{lat: 57.8817, lng: -154.4253}} />
+                     <Marker position={{lat: -42.87936, lng: 147.32941}} />
+                     <Marker position={{lat: -40.87937, lng: 147.32950}} />
                   </FeatureGroup>
                </LayersControl.Overlay>
             </LayersControl>
-   
+            <Capa1/>
+            <Capa2/>
          </MapContainer>
       )
    }, [])
 
    return  map
-
 }
-
 export default Map
