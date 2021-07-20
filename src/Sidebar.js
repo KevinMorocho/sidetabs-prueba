@@ -2,48 +2,40 @@ import React, { useState } from "react";
 import { FiHome, FiChevronLeft, FiCompass, FiSettings } from "react-icons/fi";
 import { Sidebar, Tab } from "./react-leaflet-sidetabs";
 import { Visibility } from "./components/Visibility";
-import { MapContainer, TileLayer, ScaleControl, LayersControl, FeatureGroup, Marker } from 'react-leaflet'
+import {
+  MapContainer,
+  TileLayer,
+  ScaleControl,
+  LayersControl,
+  FeatureGroup,
+  Marker,
+} from "react-leaflet";
 import Capa1 from "./components/Capa1";
 import Capa2 from "./components/Capa2";
 import Map1 from "./components/Map1";
-
-const SidebarComponent = ({ map }) => {
+import { MetaData } from "./components/MetaData";
+const SidebarComponent = ({ map, show1, setShow1, show2, setShow2 }) => {
+  
   const [openTab, setOpenTab] = useState("home");
-  const [mostrarCapa1Pantalla, setMostrarCapa1Pantalla] = useState(false);
-  const [mostrarCapa2Pantalla, setMostrarCapa2Pantalla] = useState(false);
 
-  const mostrarCapa1 = () => {
-    setMostrarCapa1Pantalla(true);
-    //aquí va el llavado para que se muestre la capa
-  };
-
-  const mostrarCapa2 = () => {
-    setMostrarCapa2Pantalla(true);
-    //aquí va el llavado para que se muestre la capa
-  };
-
-  const ocultarCapa1 = () => {
-    setMostrarCapa1Pantalla(false);
-  };
-
-  const ocultarCapa2 = () => {
-    setMostrarCapa2Pantalla(false);
-  };
 
   const seleccionCapa1 = (clickeado) => {
-    if (clickeado) {
+   /* if (clickeado) {
       mostrarCapa1();
     } else {
       ocultarCapa1();
-    }
+    }*/
+    setShow1(clickeado)
   };
 
   const seleccionCapa2 = (clickeado) => {
-    if (clickeado) {
-      mostrarCapa2();
-    } else {
-      ocultarCapa2();
-    }
+    console.log(clickeado)
+    setShow2(clickeado)
+    // if (clickeado) {
+    //   mostrarCapa2();
+    // } else {
+    //   ocultarCapa2();
+    // }
   };
 
   const onClose = () => {
@@ -53,8 +45,7 @@ const SidebarComponent = ({ map }) => {
   const onOpen = (id) => {
     setOpenTab(id);
   };
-  const [map1, setMap1] = useState(null)
-
+  const [map1, setMap1] = useState(null);
 
   return (
     <section className="Sidebar">
@@ -132,25 +123,26 @@ const SidebarComponent = ({ map }) => {
         <Tab id="props" header="Capas" icon={<FiCompass />}>
           <div className="form-check">
             <Visibility
-              description="1"
-              isChecked={mostrarCapa1Pantalla}
-              callback={(checked) => setMostrarCapa1Pantalla(checked)}
-            />
+                description="1"
+                isChecked={show1}
+                callback={(checked) => seleccionCapa1(checked)}
+              />
+              { show1 && (
+              <MetaData description="Contenido Capa 1"/>
+          )}
           </div>
           <div className="form-check">
             <Visibility
               description="2"
-              isChecked={mostrarCapa2Pantalla}
+              isChecked={show2}
               callback={(checked) => seleccionCapa2(checked)}
             />
+            { show2 && (
+              <MetaData description="Contenido Capa 2"/>
+          )}
           </div>
-          {
-            setMostrarCapa1Pantalla ? (
-              <Map1/>
-            ):null
-          }
         </Tab>
-
+        
         <Tab
           id="settings"
           header="Settings"

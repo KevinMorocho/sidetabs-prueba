@@ -11,7 +11,7 @@
 
 .sidebar {
     position: absolute;
-    top: 68px;
+    top: 105px;
     bottom: 0;
     width: 100%;
     overflow: inherit;
@@ -54,7 +54,7 @@
 
 @media (min-width:768px) {
     .sidebar {
-        top: 68px;
+        top: 105px;
         bottom: 10px;
         transition: width .5s
     }
@@ -108,7 +108,7 @@
 
 .sidebar-tabs>li.active, .sidebar-tabs>ul>li.active {
     color: #fff;
-    background-color: #0074d9
+    background-color: #20c997
 }
 
 .sidebar-tabs>li.disabled, .sidebar-tabs>ul>li.disabled {
@@ -179,7 +179,7 @@
     line-height: 40px;
     font-size: 14.4pt;
     color: #fff;
-    background-color: #0074d9
+    background-color: #20c997
 }
 
 .sidebar-right .sidebar-header {
