@@ -27,14 +27,14 @@ function style(feature) {
   };
 }
 
-function Capa1() {
+function Capa() {
   const map = useMap();
   useEffect(() => {
     const Wms = L.Geoserver.wms("http://localhost:8080/geoserver/wms", {
       layers: `topp:tasmania_roads`,
     }).addTo(map);
     console.log(Wms);
-    const Wms2 = L.Geoserver.wms("http://localhost:58141/geoserver/wms", {
+    const Wms2 = L.Geoserver.wms("http://localhost:54462/geoserver/wms", {
       layers: `topp:tasmania_roads`,
     }).addTo(map);
     /*const layerLegend = L.Geoserver.legend(
@@ -136,4 +136,4 @@ function Capa1() {
   return null;
 }
 
-export default Capa1;
+export default Capa;

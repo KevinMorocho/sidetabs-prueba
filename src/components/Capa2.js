@@ -9,7 +9,7 @@ function Capa2() {
     const Wms = L.Geoserver.wms("http://192.168.1.2:8080/geoserver/wms", {
       layers: `	topp:tasmania_water_bodies`,
     }).addTo(map);
-    const Wms2 = L.Geoserver.wms("http://localhost:58141/geoserver/wms", {
+    const Wms2 = L.Geoserver.wms("http://localhost:54462/geoserver/wms", {
       layers: `topp:tasmania_water_bodies`,
     }).addTo(map);
    /*const layerLegend=L.Geoserver.legend("http://192.168.1.2:8080/geoserver/wms", {

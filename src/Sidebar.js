@@ -10,14 +10,14 @@ import {
   FeatureGroup,
   Marker,
 } from "react-leaflet";
-import Capa1 from "./components/Capa1";
+import Capa from "./components/Capa1";
 import Capa2 from "./components/Capa2";
-import Map1 from "./components/Map1";
 import { MetaData } from "./components/MetaData";
-const SidebarComponent = ({ map, show1, setShow1, show2, setShow2 }) => {
+import { connect } from "react-redux";
+
+const SidebarComponent = ({ capas, map, show1, setShow1, show2, setShow2 }) => {
   
   const [openTab, setOpenTab] = useState("home");
-
 
   const seleccionCapa1 = (clickeado) => {
    /* if (clickeado) {
@@ -158,5 +158,10 @@ const SidebarComponent = ({ map, show1, setShow1, show2, setShow2 }) => {
     </section>
   );
 };
+const mapStateToProps = state =>({
+  initialCapas: state.initialCapas
+})
 
-export default SidebarComponent;
+const mapDispatchToProps = dispatch => ({})
+
+export default connect(mapStateToProps, mapDispatchToProps)(SidebarComponent)

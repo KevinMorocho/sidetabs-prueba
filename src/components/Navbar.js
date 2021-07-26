@@ -3,7 +3,7 @@ import Login from "./Login";
 
 //import "./NavBar.css";
 
-const NavBar=({loged, setLoged})=>{
+const NavBar=()=>{
  
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-success">
@@ -28,7 +28,7 @@ const NavBar=({loged, setLoged})=>{
             </svg>{" "}
             ALERTAS TEMPRANAS
           </a>
-          <Login loged={loged} setLoged={setLoged}/>
+          <Login/>
         </div>
       </nav>
     );

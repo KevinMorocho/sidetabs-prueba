@@ -1,6 +1,6 @@
 import React, { useMemo, useEffect, useState } from 'react'
 import { MapContainer, TileLayer, ScaleControl, LayersControl, FeatureGroup, Marker } from 'react-leaflet'
-import Capa1 from "./components/Capa1";
+import Capa from "./components/Capa1";
 import Capa2 from "./components/Capa2";
 
 const Map = props => {
@@ -44,7 +44,7 @@ const Map = props => {
       </LayersControl>
       {/* capa 1 */}
       {props.show1 && refresh ? 
-         <Capa1 />
+         <Capa />
       :
          null
       }
