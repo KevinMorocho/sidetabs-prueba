@@ -1,16 +1,68 @@
-import React from 'react'
+import React from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
-export const Visibility= props =>{
-    return (
+const Visibility = ({ capas, decisionCapa }) => {
+  return (
+    <>
+      {capas.map((capa) => (
         <div className="form-check">
-            <input type="checkbox" 
+          <div className="row">
+            <div className="form-check col">
+              <input
+                type="checkbox"
                 className="form-check-input"
-                checked={props.isChecked}
-                onChange={e => props.callback(e.target.checked)}
-            />  
-            <label className="form-check-label" htmlFor="flexCheckDefault">
-              CAPA {props.description}
-            </label>     
+                checked={capa.visible}
+                onChange={(event) => decisionCapa(event.target.checked, capa)}
+                // callback={(cheked) => decisionCapa(cheked, capa)}
+              />
+              <label className="form-check-label" htmlFor="flexCheckDefault">
+                {capa.nombreCapa}
+              </label>
+            </div>
+            <div className="col">
+              <Link to="/metadata">
+                <a
+                  className="btn btn-success"
+                  // rel="noopener"
+                  // target="_blank"
+                >
+                  Ir a Metadata
+                  <i class="fas fa-database"></i>
+                </a>
+              </Link>
+            </div>
+          </div>
         </div>
-    )
-}
+      ))}
+    </>
+  );
+};
+
+const mapStateToProps = (state) => ({
+  capasPorMostrar: state.capasPorMostrar,
+  capas: state.capas,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  decisionCapa(clickeado, capa) {
+    console.log("valor de clickeado: " + clickeado);
+    if (clickeado) {
+      console.log("Debería agregar");
+      capa.visible = true;
+      dispatch({
+        type: "AGREGAR_CAPA",
+        capa,
+      });
+    } else {
+      capa.visible = false;
+      console.log("Debería quitar");
+      dispatch({
+        type: "QUITAR_CAPA",
+        capa,
+      });
+    }
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Visibility);

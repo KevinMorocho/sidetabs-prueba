@@ -2,6 +2,7 @@ import Layout from "./components/layout";
 import InformationBlock from "./components/information";
 import { landing } from "../utils/landing";
 import { connect } from "react-redux";
+import BtnDownload from "../BtnDownload";
 
 const LandingViewMetaData = () => {
   return (
@@ -13,8 +14,9 @@ const LandingViewMetaData = () => {
           title={landing.block_2.title}
           text={landing.block_2.text}
         />
-        <div className="" />
+       <BtnDownload/> 
       </Layout>
+      
     </div>
   );
 };

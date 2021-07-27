@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { GoogleLogin, GoogleLogout } from "react-google-login";
+import { connect } from "react-redux";
+
 
 const CLIENT_ID =
   "140733596270-rgj1ppnggaioc6h7hi5d4rn3s6mh0eqf.apps.googleusercontent.com";
@@ -21,7 +23,10 @@ class Login extends Component {
 
   login(response) {
     if (response.accessToken) {
-      console.log(response.profileObj);
+      console.log("login",response.profileObj); //
+
+      this.props.download(true);
+
       this.setState((state) => ({
         isLogined: true,
         accessToken: response.profileObj.name,
@@ -31,6 +36,7 @@ class Login extends Component {
   }
 
   logout(response) {
+    this.props.download(false);
     this.setState((state) => ({
       isLogined: false,
       accessToken: "",
@@ -38,6 +44,7 @@ class Login extends Component {
   }
 
   handleLoginFailure(response) {
+    console.log("algo", response)
     alert("No se ha podido iniciar la sesión");
   }
 
@@ -46,7 +53,7 @@ class Login extends Component {
   }
 
   componentDidMount(){
-    console.log("login props",this.state)
+    console.log("login DID MOUNT",this.state)
   }
 
   render() {
@@ -105,5 +112,27 @@ class Login extends Component {
     );
   }
 }
+const mapStateToProps = (state) => ({
+  capasPorMostrar: state.capasPorMostrar,
+  capas: state.capas,
+});
 
-export default Login;
+const mapDispatchToProps = (dispatch) => ({
+  download(isLogin) {
+    if (isLogin) {
+        console.log("Debería agregar");
+      dispatch({
+        type: "LOGIN",
+      });
+    } else {
+        console.log("Debería quitar");
+      dispatch({
+        type: "LOGOUT",
+      });
+    }
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
+
+

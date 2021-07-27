@@ -23,16 +23,6 @@ const DescribeSection = () => {
                 <i class="fas fa-location-arrow"></i>
               </a>
             </Link>
-            <Link to="/metadata">
-              <a
-                className="btn btn-success"
-                // rel="noopener"
-                // target="_blank"
-              >
-                Ir a Metadata
-                <i class="fas fa-database"></i>
-              </a>
-            </Link>
           </div>
         </div>
       </div>

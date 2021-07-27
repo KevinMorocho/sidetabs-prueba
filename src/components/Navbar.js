@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Login from "./Login";
+import { Link } from "react-router-dom";
 
 //import "./NavBar.css";
 
@@ -8,7 +9,7 @@ const NavBar=()=>{
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-success">
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">
+          <Link className="navbar-brand" to="/">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -27,7 +28,7 @@ const NavBar=()=>{
               />
             </svg>{" "}
             ALERTAS TEMPRANAS
-          </a>
+          </Link>
           <Login/>
         </div>
       </nav>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FiHome, FiChevronLeft, FiCompass, FiSettings } from "react-icons/fi";
 import { Sidebar, Tab } from "./react-leaflet-sidetabs";
-import { Visibility } from "./components/Visibility";
+import Visibility from "./components/Visibility";
 import {
   MapContainer,
   TileLayer,
@@ -10,35 +10,20 @@ import {
   FeatureGroup,
   Marker,
 } from "react-leaflet";
-import Capa from "./components/Capa1";
+import Capa from "./components/Capa";
 import Capa2 from "./components/Capa2";
-import { MetaData } from "./components/MetaData";
 import { connect } from "react-redux";
 
-const SidebarComponent = ({ capas, map, show1, setShow1, show2, setShow2 }) => {
-  
+const SidebarComponent = ({
+  map,
+  show1,
+  setShow1,
+  show2,
+  setShow2,
+}) => {
   const [openTab, setOpenTab] = useState("home");
 
-  const seleccionCapa1 = (clickeado) => {
-   /* if (clickeado) {
-      mostrarCapa1();
-    } else {
-      ocultarCapa1();
-    }*/
-    setShow1(clickeado)
-  };
-
-  const seleccionCapa2 = (clickeado) => {
-    console.log(clickeado)
-    setShow2(clickeado)
-    // if (clickeado) {
-    //   mostrarCapa2();
-    // } else {
-    //   ocultarCapa2();
-    // }
-  };
-
-  const onClose = () => {
+ const onClose = () => {
     setOpenTab(false);
   };
 
@@ -121,28 +106,9 @@ const SidebarComponent = ({ capas, map, show1, setShow1, show2, setShow2 }) => {
           </p>
         </Tab>
         <Tab id="props" header="Capas" icon={<FiCompass />}>
-          <div className="form-check">
-            <Visibility
-                description="1"
-                isChecked={show1}
-                callback={(checked) => seleccionCapa1(checked)}
-              />
-              { show1 && (
-              <MetaData description="Contenido Capa 1"/>
-          )}
-          </div>
-          <div className="form-check">
-            <Visibility
-              description="2"
-              isChecked={show2}
-              callback={(checked) => seleccionCapa2(checked)}
-            />
-            { show2 && (
-              <MetaData description="Contenido Capa 2"/>
-          )}
-          </div>
+            <Visibility />
         </Tab>
-        
+
         <Tab
           id="settings"
           header="Settings"
@@ -158,10 +124,10 @@ const SidebarComponent = ({ capas, map, show1, setShow1, show2, setShow2 }) => {
     </section>
   );
 };
-const mapStateToProps = state =>({
-  initialCapas: state.initialCapas
-})
+const mapStateToProps = (state) => ({
+  capasPorMostrar: state.capasPorMostrar,
+});
 
-const mapDispatchToProps = dispatch => ({})
+const mapDispatchToProps = (dispatch) => ({});
 
-export default connect(mapStateToProps, mapDispatchToProps)(SidebarComponent)
+export default connect(mapStateToProps, mapDispatchToProps)(SidebarComponent);
