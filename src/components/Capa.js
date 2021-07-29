@@ -39,6 +39,7 @@ function Capa({capa}) {
     const Wms2 = L.Geoserver.wms(capa.urla, {
       layers: capa.layers,
     }).addTo(map);
+    console.log("Agrego:"+Wms);
 
     /*const layerLegend = L.Geoserver.legend(
       "http://192.168.1.2:8080/geoserver/wms",
@@ -121,6 +122,7 @@ function Capa({capa}) {
 
     //legend.addTo(map);
     return () => {
+      console.log("Quito:"+Wms);
       map.removeLayer(Wms);
       map.removeLayer(Wms2);
       /*map.removeLayerLegend(layerLegend);

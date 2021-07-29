@@ -2,7 +2,7 @@ import React, { useMemo, useEffect, useState } from 'react'
 import { MapContainer, TileLayer, ScaleControl, LayersControl, FeatureGroup, Marker } from 'react-leaflet'
 import { connect } from "react-redux";
 import Capa from "./components/Capa";
-import Capa2 from "./components/Capa2";
+
 
 const Map = props => {
    console.log("toy aqui",props)

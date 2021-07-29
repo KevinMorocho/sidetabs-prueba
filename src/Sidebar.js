@@ -2,35 +2,19 @@ import React, { useState } from "react";
 import { FiHome, FiChevronLeft, FiCompass, FiSettings } from "react-icons/fi";
 import { Sidebar, Tab } from "./react-leaflet-sidetabs";
 import Visibility from "./components/Visibility";
-import {
-  MapContainer,
-  TileLayer,
-  ScaleControl,
-  LayersControl,
-  FeatureGroup,
-  Marker,
-} from "react-leaflet";
-import Capa from "./components/Capa";
-import Capa2 from "./components/Capa2";
 import { connect } from "react-redux";
 
-const SidebarComponent = ({
-  map,
-  show1,
-  setShow1,
-  show2,
-  setShow2,
-}) => {
+const SidebarComponent = ({ map }) => {
   const [openTab, setOpenTab] = useState("home");
 
- const onClose = () => {
+  const onClose = () => {
     setOpenTab(false);
   };
 
   const onOpen = (id) => {
     setOpenTab(id);
   };
-  const [map1, setMap1] = useState(null);
+  //const [map1, setMap1] = useState(null);
 
   return (
     <section className="Sidebar">
@@ -106,7 +90,7 @@ const SidebarComponent = ({
           </p>
         </Tab>
         <Tab id="props" header="Capas" icon={<FiCompass />}>
-            <Visibility />
+          <Visibility />
         </Tab>
 
         <Tab

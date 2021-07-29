@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import {Link} from "react-router-dom";
 
 const BtnDownload = (props) => {
   console.log("isLogin", props.isLogin);
@@ -35,14 +36,14 @@ const BtnDownload = (props) => {
               Download
             </button>
           )}
-          <a
+          <Link to="/mapa"
             className="btn btn-secondary btn-sm"
             //onClick={() => this.props.quitarMetadata()}
-            href="/mapa" 
+            href="" 
            >
             <i class="fas fa-arrow-alt-circle-left"></i>
             Preview
-          </a>
+          </Link>
         </div>
       </div>
     </div>
