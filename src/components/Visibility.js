@@ -21,7 +21,7 @@ const Visibility = ({ capas, decisionCapa }) => {
               </label>
             </div>
             <div className="col">
-              <Link to="/metadata">
+              <Link to={`/metadata/${capa.id}`}>
                 <a
                   className="btn btn-success"
                   // rel="noopener"

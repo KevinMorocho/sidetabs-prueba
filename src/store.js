@@ -1,8 +1,11 @@
 import { createStore } from "redux";
 const capaUrl = "http://localhost:8080/geoserver/wms"; //servicio de consumo para host
-const capaUrl2 = "http://192.168.1.2:8080/geoserver/wms"; //servicio de consmo para los clientes invitados
+const capaUrl2 = "http://localhost:59430/geoserver/wms"; //servicio de consmo para los clientes invitados
 const capaUrl3 = "http://192.168.1.2:8080/geoserver/wms"; //servicio de consmo para los clientes invitados
-const Capas = [
+
+// /metadata/2
+
+export const Capas = [
   {
     id: 1,
     nombreCapa: "Coordenadas de Estaciones",
@@ -104,9 +107,23 @@ const initialStore = {
 };
 const reducerUser = (state = initialStore, action) => {
   if (action.type === "AGREGAR_CAPA") {
+    const capasM = state.capasMostradas.concat(action.capa);
+
+    // sort
+    capasM.sort((a,b)=>{
+      if (a.id > b.id) {
+        return 1;
+      }
+      if (a.id < b.id) {
+        return -1;
+      }
+      // a must be equal to b
+      return 0;
+    })
+
     return {
       ...state,
-      capasMostradas: state.capasMostradas.concat(action.capa),
+      capasMostradas: capasM,
       capasPorMostrar: state.capasPorMostrar.filter(
         (c) => c.id !== action.capa.id
       ),

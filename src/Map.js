@@ -5,26 +5,20 @@ import Capa from "./components/Capa";
 
 
 const Map = props => {
-   console.log("toy aqui",props)
-   const [refresh, setRefresh]=useState(true)
-   
+
+   const [refresh, setRefresh] = useState(true)
+
    useEffect(() => {
-      console.log("soy el efecto", props.show1)
+      console.log("REFREEEEEEEEEESH")
       setRefresh(false)
-      setRefresh(true)
-   }, [props.show1, props.show2])
-
-   // const map = useMemo( () => {
-   //    return  (
-        
-   //    )
-   // }, [])
-
-   // return  map
+      setTimeout(() => {
+         setRefresh(true)   
+      }, 100);
+   }, [props])
 
    return(
       <MapContainer 
-      doubleClickZoom={false}
+      // doubleClickZoom={false}
       id="mapId"
       zoom={9}
       center={{lat: -0.46645, lng: -76.98719}}
@@ -36,18 +30,17 @@ const Map = props => {
 
       <ScaleControl />
 
-      <LayersControl>
-         <LayersControl.Overlay name="Areas Meteorológicas">
-            <FeatureGroup>
-               <Marker position={{lat: -0.46645, lng: -76.98719}} />
-            </FeatureGroup>
-         </LayersControl.Overlay>
-      </LayersControl>
-      {props.capasMostradas.map((capa, index)=>{
-         return(
-            <Capa key={index}  capa={capa}/>
-         )
-      })}
+      {
+         refresh ?
+         props.capasMostradas.map((capa, index)=>{
+            return(
+               <Capa key={index}  capa={capa}/>
+            )
+         })
+         :
+         null
+      }
+      {}
 
       
    </MapContainer>
