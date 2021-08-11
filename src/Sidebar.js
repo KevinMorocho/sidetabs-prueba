@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {  FiCompass, FiSettings, FiChevronRight } from "react-icons/fi";
+import { FiCompass, FiSettings, FiChevronRight } from "react-icons/fi";
 import { Sidebar, Tab } from "./react-leaflet-sidetabs";
 import Visibility from "./components/Visibility";
 import { connect } from "react-redux";
@@ -35,12 +35,14 @@ const SidebarComponent = ({ map }) => {
         </Tab>
 
         <Tab id="props" header="Transparencia" icon={<FiSettings />}>
+          <br />
           <p>
             <label htmlFor="customRange1" className="form-label">
-              Example range
+              Min. - &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Max. +
             </label>
             <div className="mt-8 col-6 ">
-            <input type="range" className="form-range" id="customRange1" />
+              <input type="range" className="form-range" id="customRange1" />
             </div>
           </p>
         </Tab>

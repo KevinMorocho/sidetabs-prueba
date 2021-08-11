@@ -26,9 +26,8 @@ const Visibility = ({ capas, decisionCapa }) => {
                   className="btn btn-success"
                   // rel="noopener"
                   // target="_blank"
-                >
-                  Ir a Metadata
-                  <i class="fas fa-database"></i>
+                > 
+                  <i class="fas fa-info"></i>
                 </a>
               </Link>
             </div>

@@ -6,20 +6,29 @@ import InformationBlock from "./components/information";
 import { landing } from "../utils/landing";
 import BtnDownload from "../BtnDownload";
 import { Capas } from "../../store.js";
+import Error from "../Error/error.js";
 
 const LandingViewMetaData = () => {
   let { id } = useParams();
-
+  
   return (
     <div className="" style={{ background: "#fff" }}>
       <Layout>
-        <InformationBlock
-          img={landing.block_2.image}
-          altImg={landing.block_2.altImg}
-          title={Capas[id-1].nombreCapa}
-          text={Capas[id-1].metadata}
-        />
-       <BtnDownload/> 
+        {id && Capas[id - 1] ?
+          <>
+          <InformationBlock
+            img={landing.block_2.image}
+            altImg={landing.block_2.altImg}
+            title={Capas[id - 1].nombreCapa}
+            text={Capas[id - 1].metadata}
+          />
+           <BtnDownload /> 
+          </>
+        :
+          <Error/>
+        }
+        
+        
       </Layout>
     </div>
   );
@@ -31,4 +40,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({});
 
-export default connect(mapStateToProps, mapDispatchToProps)(LandingViewMetaData);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LandingViewMetaData);

@@ -1,5 +1,5 @@
 import React, { useMemo, useEffect, useState } from 'react'
-import { MapContainer, TileLayer, ScaleControl, LayersControl, FeatureGroup, Marker } from 'react-leaflet'
+import { MapContainer, TileLayer, ScaleControl, LayersControl, FeatureGroup } from 'react-leaflet'
 import { connect } from "react-redux";
 import Capa from "./components/Capa";
 
@@ -9,7 +9,6 @@ const Map = props => {
    const [refresh, setRefresh] = useState(true)
 
    useEffect(() => {
-      console.log("REFREEEEEEEEEESH")
       setRefresh(false)
       setTimeout(() => {
          setRefresh(true)   

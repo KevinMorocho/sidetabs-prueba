@@ -19,8 +19,8 @@ const DescribeSection = () => {
                 // rel="noopener"
                 // target="_blank"
               >
-                Ir al SIG
                 <i class="fas fa-location-arrow"></i>
+                 Mapa 
               </a>
             </Link>
           </div>

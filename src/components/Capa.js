@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { useMap } from "react-leaflet";
 import { connect } from "react-redux";
@@ -28,18 +28,180 @@ function style(feature) {
   };
 }
 
-function Capa({capa}) {
-  console.log("Soy la capa", capa)
+function Capa({ capa }) {
+  console.log("Soy la capa", capa);
   const map = useMap();
+
   useEffect(() => {
-    const Wms = L.Geoserver.wms(capa.url, {
+    /*var Wfs =  L.Geoserver.wfs(capa.urlWMS, {
+      layers: capa.layers,
+      style: {
+        color: "#ff7800",
+        fillOpacity: "0",
+        opacity: "0.5",
+      },
+      onEachFeature: function (feature, layer) {
+        layer.bindPopup(capa.nombreCapa);
+      },
+    });
+    console.log("WFS", Wfs)
+
+    let peticion = fetch(`http://localhost:8080/geoserver/wfs?service=wfs&version=2.0.0&request=GetFeature&typeNames=${capa.layers}&outputFormat=application/json`)
+    console.log("soy la información", peticion)
+
+    //map.fitBounds(Wfs.getBounds()); // <-----
+    Wfs.addTo(map);
+    
+    var Wfs2 = L.Geoserver.wfs(capa.url2WMS, {
+      layers: capa.layers,
+      style: {
+        color: "#ff7800",
+        fillOpacity: "0",
+        opacity: "0.5",
+      },
+      onEachFeature: function (feature, layer) {
+        layer.bindPopup(capa.nombreCapa);
+      },
+    });
+
+    //map.fitBounds(Wfs2.getBounds());
+    console.log("WFS2", Wfs2)*/
+    //
+    // Wms2.addTo(map);
+    
+    const Wms =  L.Geoserver.wms(capa.urlWMS, {
       layers: capa.layers,
     }).addTo(map);
-    console.log(Wms);
-    const Wms2 = L.Geoserver.wms(capa.urla, {
+    // const Wfs=0
+    const Wfs = L.Geoserver.wfs(capa.urlWMS, {
       layers: capa.layers,
+      fitLayer:false,
+      onEachFeature: function (feature, layer) {
+          layer.bindPopup(`<table>
+                  <tr>
+                   <thead>
+                      <th>Nombre</th>
+                      <th>X</th>
+                      <th>Y</th>
+                      <th>Z</th>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>${ feature.properties.nombre}</td>
+                        <td>${feature.properties.x} </td>
+                        <td>${feature.properties.y} </td>
+                        <td>${feature.properties.z} </td>
+                      </tr>
+                    </tbody>
+                  </tr>
+                </table>`);
+        },
     }).addTo(map);
-    console.log("Agrego:"+Wms);
+    
+    // map.fitBounds(Wfs.getBounds());
+
+    console.log("Datos de la Capa: " + Wfs);
+
+
+    // fetch(`http://localhost:8080/geoserver/wfs?service=wfs&version=2.0.0&request=GetFeature&typeNames=${capa.layers}&outputFormat=application/json`)
+    // .then((res)=>{
+    //   console.log(res)
+    //   return res.json()
+    // })
+    //   .then((a)=>{
+    //      console.log("A",a)
+    //   let layer = L.geoJSON(a,{
+     //    onEachFeature: function (feature, layer) {
+     //      layer.bindPopup(`<table>
+     //        <tr>
+     //            <thead>
+     //              <th>Nombre</th>
+     //              <th>X</th>
+     //              <th>Y</th>
+     //              <th>Z</th>
+     //            </thead>
+     //            <tbody>
+     //              <tr>
+     //              <td>feature.properties.nombre</td>
+     //              <td>feature.properties.x </td>
+     //              <td>feature.properties.y </td>
+     //              <td>feature.properties.z </td>
+     //              </tr>
+     //            </tbody>
+     //        </tr>
+     //      </table>`).openPopup();
+     //    },
+     //     style: {
+    //       fill:"#000000",
+    //       fillcolor: "#ff7800",
+    //       color:"#000000",
+    //       weight: 1,
+    //       fillOpacity: 1,
+    //       opacity: 1,
+    //     }
+     //  }).addTo(map)
+     //  console.log("me añado")
+     //  // map.fitBounds(layer.getBounds()); 
+     //  })
+    // catch((e)=>{console.log(e)})
+
+
+    /*
+    let Wms
+    let Wfs
+    async function fetchData() {
+      Wms = await L.Geoserver.wms(capa.urlWMS, {
+        layers: capa.layers,
+      }).addTo(map);
+
+      Wfs = await L.Geoserver.wfs(capa.urlWMS, {
+        layers: capa.layers,
+        style: {
+          fillcolor: "#ff7800",
+          fillOpacity: "#0",
+          opacity: "0.5",
+        },
+        onEachFeature: function (feature, layer) {
+           layer.bindPopup(capa.nombreCapa);
+         },
+      }).addTo(map);
+      console.log("Datos de la Capa: " + Wms);
+    }
+
+    fetchData() */
+
+    // const Wms = L.Geoserver.wms(capa.urlWMS, {
+    //   layers: capa.layers,
+    // }).addTo(map);
+    // const Wfs = L.Geoserver.wfs(capa.urlWMS, {
+    //   layers: capa.layers,
+    //   style: {
+    //     fillcolor: "#ff7800",
+    //     fillOpacity: "#0",
+    //     opacity: "0.5",
+    //   },
+    //   onEachFeature: function (feature, layer) {
+    //      layer.bindPopup(capa.nombreCapa);
+    //    },
+    // }).addTo(map);
+
+
+
+    // const Wms2 = L.Geoserver.wms(capa.url2WMS, {
+    //   layers: capa.layers,
+    // }).addTo(map);
+    // const Wfs2 = L.Geoserver.wfs(capa.url2WMS, {
+    //   layers: capa.layers,
+    //   style: {
+    //     color: "#ff7800",
+    //     fillOpacity: "0",
+    //     opacity: "0.5",
+    //   },
+    //   onEachFeature: function (feature, layer) {
+    //     layer.bindPopup(capa.nombreCapa);
+    //   },
+    // }).addTo(map);
+    // console.log("Agrego:" + Wms2);
 
     /*const layerLegend = L.Geoserver.legend(
       "http://192.168.1.2:8080/geoserver/wms",
@@ -122,9 +284,14 @@ function Capa({capa}) {
 
     //legend.addTo(map);
     return () => {
-      console.log("Quito:"+Wms);
+      // console.log("Quito:" + Wms);
       map.removeLayer(Wms);
-      map.removeLayer(Wms2);
+      map.removeLayer(Wfs);
+      // map.removeLayer(Wms2);
+      // map.removeLayer(Wfs2);
+
+      //map.removeLayer(Wfs);
+      //map.removeLayer(Wfs2);
       /*map.removeLayerLegend(layerLegend);
       map.removeLayerLegend(layerLegend2);*/
       // legend.

@@ -11,7 +11,6 @@ const LandingView = () => {
                 <div className="" />
                 <DescribeSection />
             </Layout>
-            
         </div>
     )
 }
