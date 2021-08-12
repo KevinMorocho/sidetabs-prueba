@@ -75,7 +75,11 @@ function Capa({ capa }) {
     // const Wfs=0
     const Wfs = L.Geoserver.wfs(capa.urlWMS, {
       layers: capa.layers,
-      fitLayer:false,
+      style: {
+        color: "black",
+        fillOpacity: "0",
+        opacity: "0.5",
+      },
       onEachFeature: function (feature, layer) {
           layer.bindPopup(`<table>
                   <tr>

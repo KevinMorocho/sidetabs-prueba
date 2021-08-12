@@ -17,7 +17,7 @@ const BtnDownload = (props) => {
   //Asigna la direccion de cada archivo
   for (const capa of props.capas) {
     if (capa.id === idURL) {
-      urlParte1 = capa.url;
+      urlParte1 = capa.urlWFS;
       urlParte1a = capa.urla;
       urlParte3 = capa.layers;
     }
