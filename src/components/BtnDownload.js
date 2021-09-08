@@ -49,11 +49,13 @@ const BtnDownload = (props) => {
               <i class="fas fa-cloud-download-alt"></i> Descargar
             </button>
           ) : (
+            
             <button
               className="btn btn-primary btn-sm"
               onClick={() => {
                 alert("Debe iniciar sesión");
               }}
+              data-bs-toggle="tooltip" data-bs-placement="bottom" title="Inicie Sesión para Descargar"
             >
               <i class="fas fa-cloud-download-alt"></i> Descargar
             </button>

@@ -20,7 +20,6 @@ const Error = () => {
                   to="/mapa"
                   className="btn btn-secondary btn-sm"
                   //onClick={() => this.props.quitarMetadata()}
-                  href=""
                 >
                   <i class="fas fa-arrow-alt-circle-left"></i>
                   Regresar

@@ -1,6 +1,6 @@
 const Footer = () => (
     <footer className="bg-success text-light text-center">
-      <div className="container p-4">
+      <div className="container justify-content-evenly p-4">
         <p>&copy; Alertas</p>
         <p>2020 - {new Date().getFullYear()}</p>
         <p>Todos los derechos reservados</p>

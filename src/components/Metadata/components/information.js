@@ -1,29 +1,13 @@
 const InformationBlock = ({ img, altImg, title, text, button, reverse }) => (
-    <div className=" ">
-      <div className=" ">
-        <img src={img} alt={altImg} />
+  <div className="row-sm-auto">
+      <div className="col-12">
+      <img className="col-sm-3 float-md-end mb-3 ms-md-3" src={img} alt={altImg} align="left" />
       </div>
-      <div className="container">
+      <div className="col py-5">
         <h2>{title}</h2>
         <p>{text}</p>
-        {button ?
-          <div className="container">
-            <a className="btn btn-primary"
-              href="#"
-              // rel="noopener"
-              // target="_blank"
-            >
-              <div>
-                <p>Proximamente...</p>
-                <p>Google Play</p>
-              </div>
-            </a>
-          </div>
-          :
-          null
-        }
       </div>
-    </div>
-  )
-  
-  export default InformationBlock;
+  </div>
+);
+
+export default InformationBlock;

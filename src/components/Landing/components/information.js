@@ -1,27 +1,11 @@
 const InformationBlock = ({ img, altImg, title, text, button, reverse }) => (
-    <div className=" ">
-      <div className=" ">
-        <img src={img} alt={altImg} />
+    <div className="row-md-auto gx-5">
+      <div className="p-3 col-12">
+        <img className="col-sm-2 float-md-end mb-3 ms-md-3" src={img} alt={altImg} align="left" />
       </div>
-      <div className="container">
+      <div className="col">
         <h2>{title}</h2>
         <p>{text}</p>
-        {button ?
-          <div className="container">
-            <a className="btn btn-primary"
-              href="#"
-              // rel="noopener"
-              // target="_blank"
-            >
-              <div>
-                <p>Proximamente...</p>
-                <p>Google Play</p>
-              </div>
-            </a>
-          </div>
-          :
-          null
-        }
       </div>
     </div>
   )

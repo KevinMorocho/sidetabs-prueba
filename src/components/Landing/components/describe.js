@@ -18,6 +18,7 @@ const DescribeSection = () => {
                 className="btn btn-success"
                 // rel="noopener"
                 // target="_blank"
+                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Visualizar Mapa"
               >
                 <i class="fas fa-location-arrow"></i>
                  Mapa 

@@ -1,7 +1,9 @@
-import React, { useMemo, useEffect, useState } from 'react'
-import { MapContainer, TileLayer, ScaleControl, LayersControl, FeatureGroup } from 'react-leaflet'
+import React, { useEffect, useState } from 'react'
+import { MapContainer, TileLayer, ScaleControl, LayersControl, FeatureGroup, Marker } from 'react-leaflet'
 import { connect } from "react-redux";
+// import { CRS } from 'leaflet';
 import Capa from "./components/Capa";
+import Capa2 from "./components/Capa2";
 
 
 const Map = props => {
@@ -33,14 +35,15 @@ const Map = props => {
          refresh ?
          props.capasMostradas.map((capa, index)=>{
             return(
-               <Capa key={index}  capa={capa}/>
-            )
-         })
-         :
-         null
-      }
-      {}
-
+               <>
+               {/* <Capa key={'wms-'+index} capa={capa}/> */}
+               <Capa2 key={'wfs-'+index} capa={capa}/>
+               </>
+              )
+            })
+            :
+            null
+         }
       
    </MapContainer>
    )

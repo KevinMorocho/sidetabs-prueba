@@ -10,25 +10,23 @@ import Error from "../Error/error.js";
 
 const LandingViewMetaData = () => {
   let { id } = useParams();
-  
+
   return (
-    <div className="" style={{ background: "#fff" }}>
+    <div style={{ background: "#fff" }}>
       <Layout>
-        {id && Capas[id - 1] ?
+        {id && Capas[id - 1] ? (
           <>
-          <InformationBlock
-            img={landing.block_2.image}
-            altImg={landing.block_2.altImg}
-            title={Capas[id - 1].nombreCapa}
-            text={Capas[id - 1].metadata}
-          />
-           <BtnDownload /> 
+              <InformationBlock 
+                img={landing.block_2.image}
+                altImg={landing.block_2.altImg}
+                title={Capas[id - 1].nombreCapa}
+                text={Capas[id - 1].metadata}
+              />
+            <BtnDownload />
           </>
-        :
-          <Error/>
-        }
-        
-        
+        ) : (
+          <Error />
+        )}
       </Layout>
     </div>
   );

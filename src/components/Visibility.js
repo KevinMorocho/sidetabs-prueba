@@ -26,7 +26,8 @@ const Visibility = ({ capas, decisionCapa }) => {
                   className="btn btn-success"
                   // rel="noopener"
                   // target="_blank"
-                > 
+                  data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ver Información"
+                >
                   <i class="fas fa-info"></i>
                 </a>
               </Link>

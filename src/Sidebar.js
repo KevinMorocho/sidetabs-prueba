@@ -31,20 +31,11 @@ const SidebarComponent = ({ map }) => {
       >
         <Tab id="home" header="Capas" icon={<FiCompass />} active>
           <br />
-          <Visibility />
-        </Tab>
-
-        <Tab id="props" header="Transparencia" icon={<FiSettings />}>
-          <br />
-          <p>
-            <label htmlFor="customRange1" className="form-label">
-              Min. - &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Max. +
-            </label>
-            <div className="mt-8 col-6 ">
-              <input type="range" className="form-range" id="customRange1" />
-            </div>
-          </p>
+          <div className="row ">
+        <div className="col-sm-auto">
+        <Visibility />
+        </div>
+        </div>
         </Tab>
       </Sidebar>
     </section>
