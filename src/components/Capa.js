@@ -43,26 +43,7 @@ function Capa({ capa }) {
     console.log("WMS", data);
     return data;
   };
-  const colors={
-    1:{color: "green"},
-    2:{color: "blue"},
-    3:{color: "yellow"},
-    4:{color: "orange"},
-    5:{color: "violet"},
-    6:{color: "grey"},
-    7:{color: "black"},
-    8:{color: "gold"}
-  };
-  const icon = new L.Icon({
-    iconUrl:
-  `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-${colors[capa.id].color}.png`,
-    shadowUrl:
-      "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
-    iconSize: [25, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34],
-    shadowSize: [41, 41],
-  });
+
  
   
   const getWfs = async () => {

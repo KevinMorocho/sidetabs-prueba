@@ -23,20 +23,35 @@ const Capa2 = ({ capa }) => {
   };
   // console.log(geoJson);
   // console.log(features);
+
+  const myCustomColour = "#583470";
+
+  const markerHtmlStyles = `
+    background-color: ${myCustomColour};
+    width: 3rem;
+    height: 3rem;
+    display: block;
+    left: -1.5rem;
+    top: -1.5rem;
+    position: relative;
+    border-radius: 3rem 3rem 0;
+    transform: rotate(45deg);
+    border: 1px solid #FFFFFF`;
+
   const urlNormal = `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon`;
   const urlGrande = `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x`;
   const sizeIconLittle = {
-    iconSize: [15, 20],
-    iconAnchor: [10, 20],
-    popupAnchor: [0, -34],
-    shadowSize: [20, 20],
-  };
-
-  const sizeIconBig = {
     iconSize: [25, 41],
     iconAnchor: [12, 41],
     popupAnchor: [1, -34],
     shadowSize: [41, 41],
+  };
+
+  const sizeIconBig = {
+    iconSize: [30, 46],
+    iconAnchor: [15.5, 46],
+    popupAnchor: [1, -34],
+    shadowSize: [46, 46],
   };
 
   const colors = {
@@ -50,7 +65,7 @@ const Capa2 = ({ capa }) => {
     8: { color: "black", url: urlNormal, size: sizeIconLittle },
     9: { color: "gold", url: urlNormal, size: sizeIconLittle },
   };
-  console.log("Colores", colors);
+
   const icon = new L.Icon({
     iconUrl: `${colors[capa.id].url}-${colors[capa.id].color}.png`,
     shadowUrl:
@@ -60,6 +75,7 @@ const Capa2 = ({ capa }) => {
     popupAnchor: colors[capa.id].size.popupAnchor,
     shadowSize: colors[capa.id].size.shadowSize,
   });
+
   const onEachFeature = (feature, layer) => {
     // console.log("ON EACH FEATURE", feature);
     // console.log("ON EACH FEATURE", layer);
@@ -93,11 +109,7 @@ const Capa2 = ({ capa }) => {
             </Marker> */}
 
       {geoJson ? (
-        <GeoJSON
-          data={geoJson}
-          onEachFeature={onEachFeature}
-          // style={{fillColor:'#ccc'}}
-        />
+        <GeoJSON data={geoJson} onEachFeature={onEachFeature} />
       ) : null}
     </div>
   );
