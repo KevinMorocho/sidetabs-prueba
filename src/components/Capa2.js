@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Marker, Popup, GeoJSON } from "react-leaflet";
+import { Marker, Popup, GeoJSON, Tooltip } from "react-leaflet";
+import ReactDOMServer from 'react-dom/server';
 import L from "leaflet";
 
 const Capa2 = ({ capa }) => {
@@ -23,20 +24,6 @@ const Capa2 = ({ capa }) => {
   };
   // console.log(geoJson);
   // console.log(features);
-
-  const myCustomColour = "#583470";
-
-  const markerHtmlStyles = `
-    background-color: ${myCustomColour};
-    width: 3rem;
-    height: 3rem;
-    display: block;
-    left: -1.5rem;
-    top: -1.5rem;
-    position: relative;
-    border-radius: 3rem 3rem 0;
-    transform: rotate(45deg);
-    border: 1px solid #FFFFFF`;
 
   const urlNormal = `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon`;
   const urlGrande = `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x`;
@@ -80,6 +67,12 @@ const Capa2 = ({ capa }) => {
     // console.log("ON EACH FEATURE", feature);
     // console.log("ON EACH FEATURE", layer);
     layer.setIcon(icon);
+    // const tooltipContent = ReactDOMServer.renderToString(
+    //   <Tooltip feature={feature} direction="bottom" offset={[0, 20]}>
+    //     `${capa.nombreCapa}`
+    //   </Tooltip>
+    // );
+    layer.bindTooltip(`${capa.nombreCapa}`);
     layer.bindPopup(`
         <h6>${capa.nombreCapa}</h6>
                 <table class="table table-success">
@@ -90,7 +83,7 @@ const Capa2 = ({ capa }) => {
                       <th>Z</th>
                     </thead>
                     <tbody>
-                      <tr>
+                      <tr></tr>
                         <td>${feature.properties.nombre}</td>
                         <td>${feature.properties.x} </td>
                         <td>${feature.properties.y} </td>

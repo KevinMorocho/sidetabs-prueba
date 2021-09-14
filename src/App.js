@@ -5,9 +5,12 @@ import Sidebar from "./Sidebar";
 import Navbar from "./components/Navbar";
 import LandingView from "./components/Landing";
 import LandingViewMetaData from "./components/Metadata/index";
+import Form from "./components/Formulario/index";
 import { Provider } from "react-redux";
 import store from "./store";
 import "./styles.scss";
+
+
 
 export default function App() {
   const [map, setMap] = useState(null);
@@ -22,15 +25,14 @@ export default function App() {
               <LandingView />
             </Route>
             <Route path="/mapa" exact>
-              {map && (
-                <Sidebar
-                  map={map}
-                />
-              )}
+              {map && <Sidebar map={map} />}
               <Map setMap={setMap} />
             </Route>
             <Route path="/metadata/:id">
               <LandingViewMetaData />
+            </Route>
+            <Route path="/form" exact>
+              <Form />
             </Route>
           </Switch>
         </div>
