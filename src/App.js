@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import LandingView from "./components/Landing";
 import LandingViewMetaData from "./components/Metadata/index";
 import Form from "./components/Formulario/index";
+import Datos from "./components/Datos";
 import { Provider } from "react-redux";
 import store from "./store";
 import "./styles.scss";
@@ -30,6 +31,10 @@ export default function App() {
             </Route>
             <Route path="/metadata/:id">
               <LandingViewMetaData />
+            </Route>
+            <Route path="/datos" exact>
+              {/* Mapa temático */}
+              <Datos/>
             </Route>
             <Route path="/form" exact>
               <Form />

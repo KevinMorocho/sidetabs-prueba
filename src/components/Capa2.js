@@ -42,15 +42,15 @@ const Capa2 = ({ capa }) => {
   };
 
   const colors = {
-    1: { color: "red", url: urlGrande, size: sizeIconBig },
-    2: { color: "yellow", url: urlNormal, size: sizeIconLittle },
-    3: { color: "blue", url: urlNormal, size: sizeIconLittle },
-    4: { color: "green", url: urlNormal, size: sizeIconLittle },
-    5: { color: "orange", url: urlNormal, size: sizeIconLittle },
-    6: { color: "grey", url: urlNormal, size: sizeIconLittle },
-    7: { color: "violet", url: urlNormal, size: sizeIconLittle },
+    1000: { color: "red", url: urlGrande, size: sizeIconBig },
+    9: { color: "yellow", url: urlNormal, size: sizeIconLittle },
+    2: { color: "blue", url: urlNormal, size: sizeIconLittle },
+    1: { color: "green", url: urlNormal, size: sizeIconLittle },
+    4: { color: "orange", url: urlNormal, size: sizeIconLittle },
+    5: { color: "grey", url: urlNormal, size: sizeIconLittle },
+    11: { color: "violet", url: urlNormal, size: sizeIconLittle },
     8: { color: "black", url: urlNormal, size: sizeIconLittle },
-    9: { color: "gold", url: urlNormal, size: sizeIconLittle },
+    10: { color: "gold", url: urlNormal, size: sizeIconLittle },
   };
 
   const icon = new L.Icon({
