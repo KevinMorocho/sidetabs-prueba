@@ -1,13 +1,23 @@
 .App {
   font: 14px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
+  overflow-y: auto;
 }
 
 html, body, #root, .App, #mapId {
   width: 100%;
-  height: 92vh;
+  height: 100%;
   margin: 0;
   padding:0;
 }
+.nav-hot-fix {
+  // height: 10vh;
+  min-height: 10vh;
+}
+.container-map{
+  position: relative;
+  height: 90vh;
+}
+
 
 #mapDatos {
   width: 100%;

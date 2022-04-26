@@ -17,7 +17,7 @@ const Error = () => {
 
                 <p>la página que busca no está disponible</p>
                 <Link
-                  to="/mapa"
+                  to="/"
                   className="btn btn-secondary btn-sm"
                   //onClick={() => this.props.quitarMetadata()}
                 >

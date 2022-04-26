@@ -27,13 +27,13 @@ export const Capas = [
       Ullam, quia soluta? Tenetur, sed molestiae? Ab dolores assumenda optio, quia beatae quidem fugit vel itaque qui sit dolorum cum aspernatur fuga excepturi voluptas illum consequuntur vitae asperiores. Quae, dignissimos!`,
   },
   {
-    id: "9",//Este Id viene del IDEstudio
+    id: "9", //Este Id viene del IDEstudio
     nombreCapa: "Plantas La Belleza",
     visible: false,
     urlWMS: capaUrlWMS,
     urlWFS: capaUrlWFS,
-    x:"-77.220704",
-    y:"-0.635699",
+    x: "-77.220704",
+    y: "-0.635699",
     layers: `patfa:plantas_la_belleza`,
     // url2WMS: capaUrl2WMS,
     // url2WFS: capaUrl2WFS,
@@ -44,13 +44,13 @@ export const Capas = [
       Ullam, quia soluta? Tenetur, sed molestiae? Ab dolores assumenda optio, quia beatae quidem fugit vel itaque qui sit dolorum cum aspernatur fuga excepturi voluptas illum consequuntur vitae asperiores. Quae, dignissimos!`,
   },
   {
-    id: "2",//Este Id viene del IDEstudio
+    id: "2", //Este Id viene del IDEstudio
     nombreCapa: "Plantas Puerto Murialdo - Loreto",
     visible: false,
     urlWMS: capaUrlWMS,
     urlWFS: capaUrlWFS,
-    x:"-77.129627",
-    y:"-0.626326",
+    x: "-77.129627",
+    y: "-0.626326",
     layers: `patfa:plantas_puertomurialdo`,
     // url2WMS: capaUrl2WMS,
     // url2WFS: capaUrl2WFS,
@@ -61,13 +61,13 @@ export const Capas = [
       Ullam, quia soluta? Tenetur, sed molestiae? Ab dolores assumenda optio, quia beatae quidem fugit vel itaque qui sit dolorum cum aspernatur fuga excepturi voluptas illum consequuntur vitae asperiores. Quae, dignissimos!`,
   },
   {
-    id: "1",//Este Id viene del IDEstudio
+    id: "1", //Este Id viene del IDEstudio
     nombreCapa: "Plantas San José de Dahuano - Loreto",
     visible: false,
     urlWMS: capaUrlWMS,
     urlWFS: capaUrlWFS,
-    x:"-77.291757",
-    y:"-0.616313",
+    x: "-77.291757",
+    y: "-0.616313",
     layers: `patfa:plantas_sanjosedahuano`,
     // url2WMS: capaUrl2WMS,
     // url2WFS: capaUrl2WFS,
@@ -78,13 +78,13 @@ export const Capas = [
       Ullam, quia soluta? Tenetur, sed molestiae? Ab dolores assumenda optio, quia beatae quidem fugit vel itaque qui sit dolorum cum aspernatur fuga excepturi voluptas illum consequuntur vitae asperiores. Quae, dignissimos!`,
   },
   {
-    id: "4",//Este Id viene del IDEstudio
+    id: "4", //Este Id viene del IDEstudio
     nombreCapa: "Plantas Unión Milagreña - Sacha",
     visible: false,
     urlWMS: capaUrlWMS,
     urlWFS: capaUrlWFS,
-    x:"-76.749824",
-    y:"-0.371444",
+    x: "-76.749824",
+    y: "-0.371444",
     layers: `patfa:plantas_union_milagrena_sacha`,
     // url2WMS: capaUrl2WMS,
     // url2WFS: capaUrl2WFS,
@@ -95,13 +95,13 @@ export const Capas = [
       Ullam, quia soluta? Tenetur, sed molestiae? Ab dolores assumenda optio, quia beatae quidem fugit vel itaque qui sit dolorum cum aspernatur fuga excepturi voluptas illum consequuntur vitae asperiores. Quae, dignissimos!`,
   },
   {
-    id: "5",//Este Id viene del IDEstudio
+    id: "5", //Este Id viene del IDEstudio
     nombreCapa: "Plantas INIAP Zona 1",
     visible: false,
     urlWMS: capaUrlWMS,
     urlWFS: capaUrlWFS,
-    x:"-76.872751",
-    y:"-0.342917",
+    x: "-76.872751",
+    y: "-0.342917",
     layers: `patfa:zona1`,
     // url2WMS: capaUrl2WMS,
     // url2WFS: capaUrl2WFS,
@@ -112,13 +112,13 @@ export const Capas = [
       Ullam, quia soluta? Tenetur, sed molestiae? Ab dolores assumenda optio, quia beatae quidem fugit vel itaque qui sit dolorum cum aspernatur fuga excepturi voluptas illum consequuntur vitae asperiores. Quae, dignissimos!`,
   },
   {
-    id: "11",//Este Id viene del IDEstudio
+    id: "11", //Este Id viene del IDEstudio
     nombreCapa: "Plantas INIAP Zona 2",
     visible: false,
     urlWMS: capaUrlWMS,
     urlWFS: capaUrlWFS,
-    x:"-76.863751",
-    y:"-0.357927",
+    x: "-76.863751",
+    y: "-0.357927",
     layers: `patfa:zona2`,
     // url2WMS: capaUrl2WMS,
     // url2WFS: capaUrl2WFS,
@@ -129,7 +129,12 @@ export const Capas = [
       Ullam, quia soluta? Tenetur, sed molestiae? Ab dolores assumenda optio, quia beatae quidem fugit vel itaque qui sit dolorum cum aspernatur fuga excepturi voluptas illum consequuntur vitae asperiores. Quae, dignissimos!`,
   },
 ];
-const capaFaltante={id:"3",x:"-76.934252",y:"0.303065",nombreCapa:"Lago San Pedro"}
+const capaFaltante = {
+  id: "3",
+  x: "-76.934252",
+  y: "0.303065",
+  nombreCapa: "Lago San Pedro",
+};
 const initialStore = {
   isLogin: false,
   capas: Capas,
@@ -141,7 +146,7 @@ const reducerUser = (state = initialStore, action) => {
     const capasM = state.capasMostradas.concat(action.capa);
 
     // sort
-    capasM.sort((a,b)=>{
+    capasM.sort((a, b) => {
       if (a.id > b.id) {
         return 1;
       }
@@ -150,7 +155,7 @@ const reducerUser = (state = initialStore, action) => {
       }
       // a must be equal to b
       return 0;
-    })
+    });
 
     return {
       ...state,

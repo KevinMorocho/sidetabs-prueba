@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import Layout from "./components/layout";
@@ -10,17 +11,42 @@ import Error from "../Error/error.js";
 
 const LandingViewMetaData = () => {
   let { id } = useParams();
+  const [capa, setCapa] = useState(null)
+  console.log("id:", id);
+  console.log("Capa:", Capas["id"]);
+  console.log("Capas:", Capas);
 
+  /* 
+    []
+    [1,2,3,"hola","que hace", null, undefined]
+    {}
+    [
+      {id:"dasds"} 0
+      {id:"ddasdsd"} 1
+    ]
+  */
+
+  const searchCapa = () => {
+    const cIndex = Capas.findIndex((c)=>c.id === id)
+    if(cIndex === -1) return setCapa(null)
+    setCapa(Capas[cIndex])
+  }
+
+  // listen any change in id
+  useEffect(() => {
+    if(id) searchCapa()
+  }, [id])
+  
   return (
     <div style={{ background: "#fff" }}>
       <Layout>
-        {id && Capas[id - 1] ? (
+        {id && capa ? (
           <>
               <InformationBlock 
                 img={landing.block_2.image}
                 altImg={landing.block_2.altImg}
-                title={Capas[id - 1].nombreCapa}
-                text={Capas[id - 1].metadata}
+                title={capa.nombreCapa}
+                text={capa.metadata}
               />
             <BtnDownload />
           </>

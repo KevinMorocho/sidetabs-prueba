@@ -57,8 +57,8 @@ class Login extends Component {
 
   render() {
     return (
-        <div className="row">
-          <div className="col-md-auto">
+        <div className="d-flex" style={{alignItems:"center"}}>
+          <div className="col-md-auto" style={{margin:"0px 5px"}}>
             {this.state.accessToken ? (
               <label>
                 <h6>
@@ -68,13 +68,13 @@ class Login extends Component {
                 </h6>
               </label>
             ) : (
-              <h6>
-                <br />
+              <div>
+                {/* <br /> */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
                   height="20"
-                  fill="currentColor"
+                  fill="#000"
                   class="bi bi-person-check-fill"
                   viewBox="0 0 16 16"
                 >
@@ -84,7 +84,7 @@ class Login extends Component {
                   />
                   <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                 </svg>
-              </h6>
+              </div>
             )}
           </div>
           <div className="col-md-auto">

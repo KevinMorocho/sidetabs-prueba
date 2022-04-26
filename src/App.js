@@ -7,6 +7,7 @@ import LandingView from "./components/Landing";
 import LandingViewMetaData from "./components/Metadata/index";
 import Form from "./components/Formulario/index";
 import Datos from "./components/Datos";
+import Error from "./components/Error/error";
 import { Provider } from "react-redux";
 import store from "./store";
 import "./styles.scss";
@@ -38,6 +39,12 @@ export default function App() {
             </Route>
             <Route path="/form" exact>
               <Form />
+            </Route>
+            {/* not match route */}
+            <Route path="*">
+              <div style={{display:"flex", alignItems:"center", justifyContent:"center", height:"75%"}}>
+                <Error/>
+              </div>
             </Route>
           </Switch>
         </div>

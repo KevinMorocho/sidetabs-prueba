@@ -1,8 +1,9 @@
 import React from 'react'
 
-const Tabla = ({estaciones}) => {
+const Tabla = ({estaciones,highlight}) => {
   return (
-    <table className="table table-striped|sm|bordered|hover|inverse table-inverse table-responsive">
+     <div className="card-body table-responsive" >
+    <table className="table table-striped table-hover table-bordered table-sm bg-white shadow-lg display nowrap">
         <thead className="thead-inverse|thead-default">
             <tr>
                 <th>Parroquia</th>
@@ -15,7 +16,7 @@ const Tabla = ({estaciones}) => {
             <tbody>
                 {estaciones.map((etc)=>{
                     return(
-                        <tr key={etc.idestudio}>
+                        <tr key={etc.idestudio} className={etc.idestudio === highlight ? "table-secondary" : null} >
                             <td scope="row">{etc.parroquia}</td>
                             <td>{etc.nombreEstudio}</td>
                             <td>{etc.count}</td>
@@ -26,6 +27,7 @@ const Tabla = ({estaciones}) => {
                 })}
             </tbody>
     </table>
+    </div>
   )
 }
 

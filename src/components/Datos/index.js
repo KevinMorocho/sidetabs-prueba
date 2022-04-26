@@ -16,6 +16,8 @@ const Datos = () => {
     const [tout, setTout] = useState(null);
     const [loading, setLoading] = useState(true)
     const [estaciones, setEstaciones] = useState([])
+    // highlight (id de la zona a resaltar en la tabla)
+    const [highlight, setHighlight] = useState(null)
 
     // queries (fechas)
     const [feci, setFeci] = useState('2021-04-01')
@@ -45,6 +47,10 @@ const Datos = () => {
         setTout(timeout)
     }
 
+    const cbHighlight = (id) => {
+        setHighlight(id)
+    }
+
     // ejecuta la petición al montar la vista (como una especie de constructor)
     useEffect(() => {
         getSeveridad()
@@ -72,8 +78,8 @@ const Datos = () => {
                 <input className=" form-control " type="date" name="fecf" value={fecf} onChange={(e)=>{setFecf(e.target.value)}} required pattern="\d{4}-\d{2}-\d{2}"/>
             </label>
         </div>
-        <Mapa estaciones={estaciones} />
-        <Tabla estaciones={estaciones} />
+        <Mapa estaciones={estaciones} onClickZone={cbHighlight}/>
+        <Tabla estaciones={estaciones} highlight={highlight}/>
     </>
   )
 }

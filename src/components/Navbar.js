@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const NavBar = () => {
   return (
     <nav
-      className="navbar navbar-expand-lg navbar-light bg-success"
+      className="navbar navbar-expand-lg navbar-light bg-success nav-hot-fix"
       // style={{ height: "8vh" }}
     >
       <div className="container-fluid">
@@ -32,12 +32,17 @@ const NavBar = () => {
           ALERTAS TEMPRANAS
         </Link>
 
-        <Link className=" me-auto mb-2 mb-lg-0 bg-warning btn btn-outline-success me-2" to="/datos">
-        Datos
-        </Link>
+        {/* <Link className="me-auto mb-2 mb-lg-0 bg-warning btn btn-outline-success me-2" to="/datos">
+          Datos
+        </Link> */}
         <div className="nav justify-content-end">
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <Link className="me-auto mb-lg-0 bg-warning btn btn-outline-success me-2" to="/datos">
+                  Datos
+                </Link>
+              </li>
               <li className="nav-item">
                 <Login className="nav-link active" />
               </li>
