@@ -39,7 +39,7 @@ const NavBar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="me-auto mb-lg-0 bg-warning btn btn-outline-success me-2" to="/datos">
+                <Link className="me-auto mb-2 mb-lg-0 bg-warning btn btn-outline-success me-2" to="/datos">
                   Datos
                 </Link>
               </li>
